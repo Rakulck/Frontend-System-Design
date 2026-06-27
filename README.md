@@ -6,23 +6,37 @@ It is **framework-agnostic in analysis** and **framework-aware in execution**. I
 
 ## Installation
 
-This repository serves as a direct, open Claude Code skill. 
+This repository serves as a direct, open Claude Code skill. No terminal installation commands are required.
 
-To install it into any codebase:
+### 1. Claude Code CLI Install
+
+To install it for local command-line use with Claude Code:
 
 1. Download or clone this repository.
-2. Copy the `frontend-system-design/` folder directly into your project's `.agents/skills/` directory (or manually upload it to the Claude.ai UI).
+2. Choose your installation scope and copy the `frontend-system-design/` folder:
+
+**Project install (recommended):**
+Copy `frontend-system-design/` into `.claude/skills/` at your project root.
+
+**Global install:**
+Copy `frontend-system-design/` into `~/.claude/skills/` in your user home directory.
 
 ```text
 your-project/
-  .agents/
+  .claude/
     skills/
       frontend-system-design/
         SKILL.md
         references/
 ```
+*(Note: Other Agent Skills-compatible tools may use different paths, such as `.agents/skills/`).*
 
-Claude will automatically discover the skill. No terminal installation commands are required.
+### 2. Claude.ai Web Install
+
+To use this skill inside the Claude.ai web interface:
+
+1. Zip the `frontend-system-design/` folder so the zip file contains the skill folder as its root.
+2. Upload the zip file in Claude.ai under **Customize → Skills**.
 
 ## Usage
 
