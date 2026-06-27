@@ -1,6 +1,10 @@
 ---
 name: frontend-system-design
-description: This skill should be used when the user asks to analyze, architect, review, fix, refactor, validate, or improve frontend system design, frontend architecture, API/data fetching, caching, mutations, state management, loading/error/empty states, performance, traffic handling, auth boundaries, reusable components, folder structure, production readiness, React, Next.js, React Native, Expo, Flutter, Vue, Angular, Svelte, Blazor, Razor, or frontend/API integration. Use for requests like "review my frontend architecture", "fix P0/P1 frontend issues", "improve caching", "audit API handling", "prevent UI downtime", "validate frontend changes", or "make this frontend production ready". Do not use for pure backend/database-only work with no frontend or frontend/API boundary.
+description: Use this skill when the user asks to analyze, architect, review, fix, refactor, validate, or improve frontend system design, frontend architecture, API/data fetching, caching, mutations, state management, loading/error/empty states, performance, traffic handling, auth boundaries, reusable components, folder structure, production readiness, React, Next.js, React Native, Expo, Flutter, Vue, Angular, Svelte, Blazor, Razor, or frontend/API integration.
+when_to_use: Use for requests like "review my frontend architecture", "fix P0/P1 frontend issues", "improve caching", "audit API handling", "prevent UI downtime", "validate frontend changes", "make this frontend production ready", or "use frontend system design".
+argument-hint: "[analyze|fix P0|fix P1|validate] [scope]"
+user-invocable: true
+disable-model-invocation: false
 allowed-tools: Read Grep Glob
 ---
 # Frontend System Design
