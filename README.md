@@ -58,7 +58,11 @@ Cleanup, naming, small consistency issue, polish, or nice-to-have optimization.
 Open Claude Code from your project root and paste this:
 
 ```text
-Install the Frontend System Design skill from https://github.com/Rakulck/Frontend-System-Design into this project’s .claude/skills folder, using the skill located at plugins/frontend/skills/frontend-system-design, then verify that .claude/skills/frontend-system-design/SKILL.md exists.
+Install the Frontend System Design skill from https://github.com/Rakulck/Frontend-System-Design into this project’s .claude/skills folder, using the skill located at plugins/frontend/skills/frontend-system-design, then verify that .claude/skills/frontend-system-design/SKILL.md exists. After installation, show me this message: “Frontend System Design skill installed. Next step: run an audit with: /frontend-system-design analyze this codebase. Do not modify code.”
+```
+
+```text
+/frontend-system-design analyze this codebase. Do not modify code.
 ```
 
 ## Open Skill Install
