@@ -53,6 +53,14 @@ P3 — Low
 Cleanup, naming, small consistency issue, polish, or nice-to-have optimization.
 ```
 
+## One-line install with Claude Code
+
+Open Claude Code from your project root and paste this:
+
+```text
+Install the Frontend System Design skill from https://github.com/Rakulck/Frontend-System-Design into this project’s .claude/skills folder, using the skill located at plugins/frontend/skills/frontend-system-design, then verify that .claude/skills/frontend-system-design/SKILL.md exists.
+```
+
 ## Open Skill Install
 
 This is the primary and recommended way to use this skill. 
