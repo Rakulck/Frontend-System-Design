@@ -9,7 +9,7 @@ It is **framework-agnostic in analysis** and **framework-aware in execution**. I
 ### Claude Code Marketplace Install
 
 ```bash
-claude plugin marketplace add YOUR_GITHUB_USERNAME/principal-frontend-engineer
+claude plugin marketplace add Rakulck/Frontend-System-Design
 claude plugin install principal-frontend-engineer@principal-frontend-engineer
 ```
 
