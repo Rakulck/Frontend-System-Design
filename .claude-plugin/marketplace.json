@@ -8,6 +8,7 @@
     {
       "name": "principal-frontend-engineer",
       "source": "./plugins/principal-frontend-engineer",
+      "version": "0.3.0",
       "description": "Analyze, execute, and validate frontend system design improvements across API handling, caching, state management, UI reliability, performance, traffic handling, security, and scalable architecture.",
       "author": {
         "name": "Rakul CK"
@@ -19,11 +20,11 @@
         "react",
         "nextjs",
         "react-native",
-        "expo",
         "flutter",
         "performance",
         "caching",
-        "claude-code"
+        "claude-code",
+        "agent-skill"
       ]
     }
   ]

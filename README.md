@@ -4,29 +4,32 @@ A Claude Code marketplace plugin for analyzing, improving, and validating fronte
 
 It is **framework-agnostic in analysis** and **framework-aware in execution**. It first detects the existing stack, architecture, routing, API/data layer, state management, styling system, and validation commands, then produces a priority-ranked report or applies selected fixes safely.
 
-## Install
+## Installation
 
-After pushing this repository to GitHub, users can install it with Claude Code's plugin marketplace commands.
-
-Replace `YOUR_GITHUB_USERNAME` with your GitHub username or organization:
+### Claude Code Marketplace Install
 
 ```bash
 claude plugin marketplace add YOUR_GITHUB_USERNAME/principal-frontend-engineer
 claude plugin install principal-frontend-engineer@principal-frontend-engineer
 ```
 
-Optional project-shared install:
-
-```bash
-claude plugin marketplace add YOUR_GITHUB_USERNAME/principal-frontend-engineer --scope project
-claude plugin install principal-frontend-engineer@principal-frontend-engineer --scope project
-```
-
-Inside Claude Code, reload plugins if already in a session:
+Then inside Claude Code:
 
 ```text
 /reload-plugins
 ```
+
+### Direct Claude Skill Usage
+
+This repo also includes a root-level open skill folder:
+
+```text
+frontend-system-design/
+  SKILL.md
+  references/
+```
+
+This is useful for SkillsMP discovery and manual Claude.ai skill upload.
 
 ## Local testing before publishing
 
@@ -53,17 +56,27 @@ Analyze only:
 /principal-frontend-engineer:frontend-system-design analyze this codebase. Do not modify code.
 ```
 
-Fix critical/high-priority issues only:
+Fix selected issues:
 
 ```text
 /principal-frontend-engineer:frontend-system-design fix P0 and P1 issues only. Keep changes small and validate after edits.
 ```
 
-Validate latest changes:
+Validate:
 
 ```text
-/principal-frontend-engineer:frontend-system-design validate the latest frontend changes.
+/principal-frontend-engineer:frontend-system-design validate the recent frontend changes.
 ```
+
+## Permissions
+
+This skill is safe by default. It only pre-approves read-only tools:
+
+* Read
+* Grep
+* Glob
+
+Execution actions such as editing files, running build commands, installing packages, changing architecture, or modifying project behavior should require explicit user intent and Claude Code permission.
 
 ## What it does
 
@@ -98,18 +111,14 @@ Agents:
     Runs checks and verifies that changes did not break build, tests, or key flows.
 ```
 
-## Safety layer
+## Safety and Anti-Hallucination Rules
 
-The skill includes explicit constraints to prevent broad or hallucinated changes:
-
-- Evidence required for every finding
-- Confidence levels: High, Medium, Low
-- Execution risk labeling
-- Stop conditions before risky edits
-- No broad rewrites by default
-- No dependency additions without approval
-- No backend/API/auth/payment/database/deployment changes unless explicitly requested
-- Concept-specific playbooks for API, caching, mutations, state, reliability, performance, security, components, and validation
+* Every finding must include codebase evidence.
+* Low-confidence issues should not be executed without user approval.
+* The skill should not assume frameworks, libraries, APIs, or files.
+* The skill should not recommend new dependencies unless necessary and approved.
+* The skill should not modify backend contracts, database schema, auth, billing, payment, or deployment logic unless explicitly requested.
+* The skill should not broaden the task beyond the user’s requested scope.
 
 ## Priority levels
 
@@ -127,25 +136,26 @@ P3 — Low
 Cleanup, naming, small consistency issue, polish, or nice-to-have optimization.
 ```
 
-## Framework support
+## Supported Frameworks
 
-Strong target support:
+Strongest support:
 
-- React
-- Next.js
-- React Native / Expo
+* React
+* Next.js
+* React Native
+* Expo
+* Flutter
 
-General framework-aware support:
+General support:
 
-- Flutter
-- Vue
-- Angular
-- Svelte
-- Blazor
-- ASP.NET MVC / Razor frontend views
-- .NET backend + frontend/API boundary
+* Vue
+* Nuxt
+* Angular
+* Svelte
+* Blazor
+* Razor / ASP.NET frontend views
 
-The skill should not force React, Next.js, React Query, Tailwind, Zustand, Redux, Riverpod, Bloc, or any other tool unless the codebase already uses it or the user explicitly asks for a migration.
+The skill is framework-aware, not framework-forcing. It detects the existing stack first.
 
 ## Repository structure
 
@@ -153,6 +163,9 @@ The skill should not force React, Next.js, React Query, Tailwind, Zustand, Redux
 principal-frontend-engineer/
   .claude-plugin/
     marketplace.json
+  frontend-system-design/
+    SKILL.md
+    references/
   plugins/
     principal-frontend-engineer/
       .claude-plugin/

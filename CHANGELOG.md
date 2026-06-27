@@ -2,11 +2,13 @@
 
 ## 0.3.0
 
-- Converted repo into Claude Code marketplace structure.
-- Added root `.claude-plugin/marketplace.json`.
-- Moved plugin contents under `plugins/principal-frontend-engineer/`.
-- Updated README with marketplace install, local validation, local marketplace testing, direct plugin testing, and usage commands.
-- Updated plugin manifest version to `0.3.0`.
+- Added top-level open `frontend-system-design/` skill folder for SkillsMP and Claude.ai upload compatibility.
+- Updated `SKILL.md` to use progressive disclosure.
+- Added explicit `allowed-tools: Read Grep Glob`.
+- Improved trigger description for better automatic skill activation.
+- Strengthened grounding, evidence, confidence, and anti-hallucination rules.
+- Added stricter scope control to prevent broad rewrites.
+- Kept Claude Code marketplace plugin support.
 
 ## 0.2.0
 
