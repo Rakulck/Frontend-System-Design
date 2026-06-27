@@ -1,13 +1,13 @@
 {
-  "name": "principal-frontend-engineer",
+  "name": "system-design",
   "owner": {
     "name": "Rakul CK"
   },
   "description": "Claude Code marketplace for principal-level frontend system design skills and agents.",
   "plugins": [
     {
-      "name": "principal-frontend-engineer",
-      "source": "./plugins/principal-frontend-engineer",
+      "name": "frontend",
+      "source": "./plugins/frontend",
       "version": "0.3.0",
       "description": "Analyze, execute, and validate frontend system design improvements across API handling, caching, state management, UI reliability, performance, traffic handling, security, and scalable architecture.",
       "author": {
