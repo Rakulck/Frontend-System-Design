@@ -1,0 +1,30 @@
+{
+  "name": "principal-frontend-engineer",
+  "owner": {
+    "name": "Rakul CK"
+  },
+  "description": "Claude Code marketplace for principal-level frontend system design skills and agents.",
+  "plugins": [
+    {
+      "name": "principal-frontend-engineer",
+      "source": "./plugins/principal-frontend-engineer",
+      "description": "Analyze, execute, and validate frontend system design improvements across API handling, caching, state management, UI reliability, performance, traffic handling, security, and scalable architecture.",
+      "author": {
+        "name": "Rakul CK"
+      },
+      "license": "MIT",
+      "keywords": [
+        "frontend",
+        "system-design",
+        "react",
+        "nextjs",
+        "react-native",
+        "expo",
+        "flutter",
+        "performance",
+        "caching",
+        "claude-code"
+      ]
+    }
+  ]
+}

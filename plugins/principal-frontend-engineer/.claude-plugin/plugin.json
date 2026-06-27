@@ -1,0 +1,11 @@
+{
+  "name": "principal-frontend-engineer",
+  "description": "Analyze, improve, and validate frontend codebases with principal-level system design, grounded evidence rules, safe execution constraints, and framework-aware validation.",
+  "version": "0.3.0",
+  "author": {
+    "name": "Rakul CK"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/YOUR_GITHUB_USERNAME/principal-frontend-engineer",
+  "repository": "https://github.com/YOUR_GITHUB_USERNAME/principal-frontend-engineer"
+}
