@@ -1,18 +1,21 @@
 # Principal Frontend Engineer
 
-A Claude Code marketplace plugin for analyzing, improving, and validating frontend codebases like a principal frontend engineer.
+A Claude Code skill for analyzing, improving, and validating frontend codebases like a principal frontend engineer.
 
 It is **framework-agnostic in analysis** and **framework-aware in execution**. It first detects the existing stack, architecture, routing, API/data layer, state management, styling system, and validation commands, then produces a priority-ranked report or applies selected fixes safely.
 
 ## Installation
 
-You can install this plugin instantly with a single one-line terminal command inside any project where you want to use it:
+The primary way to use this skill is to copy the `frontend-system-design/` folder into your Claude skills directory.
 
-```bash
-claude plugin marketplace add Rakulck/Frontend-System-Design && claude plugin install frontend@system-design
-```
+### Project Install (Recommended)
+Copy the `frontend-system-design/` folder into your project's `.claude/skills/` directory.
 
-*(This command adds the custom marketplace registry and installs the frontend skill + agents in one go. After running it, type `/reload-plugins` if you are already inside a Claude Code session).*
+### Global Install
+Copy the `frontend-system-design/` folder into your global Claude skills directory: `~/.claude/skills/`
+
+### Claude.ai Install
+Zip the `frontend-system-design/` folder so the zip contains the skill folder as its root, then upload it through Claude.ai Skills settings.
 
 ## Usage
 
@@ -60,7 +63,7 @@ Principal Frontend Engineer reviews and improves frontend system design across:
 
 ## Modes
 
-The plugin is built around one skill and three focused agents.
+This is built around one primary skill and three focused agents.
 
 ```text
 Skill: frontend-system-design
@@ -146,26 +149,19 @@ principal-frontend-engineer/
   CHANGELOG.md
 ```
 
-## Local testing before publishing
+## Experimental / Advanced
 
-From the parent directory of this repo:
+If you have a custom or experimental plugin environment, you can use the slash command syntax:
 
-```bash
-claude plugin validate ./principal-frontend-engineer
-claude plugin validate ./principal-frontend-engineer/plugins/frontend
-claude plugin marketplace add ./principal-frontend-engineer
-claude plugin install frontend@system-design
+```text
+/plugin marketplace add owner/repo
+/plugin install plugin-name@marketplace-name
 ```
-
-Or test the plugin directly without marketplace install:
-
-```bash
-claude --plugin-dir ./principal-frontend-engineer/plugins/frontend
-```
+*(Note: Marketplace install is not the recommended path. Please use the standard skill installation methods above.)*
 
 ## Development notes
 
-This marketplace intentionally avoids sample private repo outputs in the MVP. Test it on real repositories locally, then improve the skill based on failure cases.
+This repository intentionally avoids sample private repo outputs in the MVP. Test it on real repositories locally, then improve the skill based on failure cases.
 
 Best iteration loop:
 
