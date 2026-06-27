@@ -4,20 +4,92 @@ A Claude Code skill for analyzing, improving, and validating frontend codebases 
 
 It is **framework-agnostic in analysis** and **framework-aware in execution**. It first detects the existing stack, architecture, routing, API/data layer, state management, styling system, and validation commands, then produces a priority-ranked report or applies selected fixes safely.
 
-## Installation
+## What it does
 
-The primary way to use this skill is to copy the `frontend-system-design/` folder into your Claude skills directory.
+Principal Frontend Engineer reviews and improves frontend system design across:
 
-### Project Install (Recommended)
+- API handling and data fetching
+- Caching, stale data, and cache invalidation
+- Mutation/write-flow safety
+- Loading, error, empty, retry, and fallback states
+- State management boundaries
+- Performance and traffic handling
+- Auth, security, and sensitive data handling
+- Reusable components and folder structure
+- Testing, validation, and production readiness
+
+### Modes
+
+This is built around one primary skill and three focused agents.
+
+```text
+Skill: frontend-system-design
+  Orchestrates the workflow and decides whether to analyze, execute, or validate.
+
+Agents:
+  frontend-auditor
+    Read-only analysis. Produces the grounded priority report.
+
+  frontend-executor
+    Implements selected fixes safely. Preserves existing stack and patterns.
+
+  frontend-validator
+    Runs checks and verifies that changes did not break build, tests, or key flows.
+```
+
+### Priority levels
+
+```text
+P0 — Critical
+Can cause production downtime, blank UI, data loss, broken auth/payment, broken core flow, duplicate critical writes, or unsafe sensitive-data behavior.
+
+P1 — High
+Major reliability, performance, scalability, traffic, or UX risk.
+
+P2 — Medium
+Maintainability, architecture, design-system, or code-quality issue that will slow future development.
+
+P3 — Low
+Cleanup, naming, small consistency issue, polish, or nice-to-have optimization.
+```
+
+## Open Skill Install
+
+This is the primary and recommended way to use this skill. 
+
+**Project Install (Recommended)**  
 Copy the `frontend-system-design/` folder into your project's `.claude/skills/` directory.
 
-### Global Install
+**Global Install**  
 Copy the `frontend-system-design/` folder into your global Claude skills directory: `~/.claude/skills/`
 
-### Claude.ai Install
+## Claude.ai Upload
+
 Zip the `frontend-system-design/` folder so the zip contains the skill folder as its root, then upload it through Claude.ai Skills settings.
 
-## Usage
+## Claude Code Plugin Install
+
+*Important: these are Claude Code slash commands, not terminal commands.*
+
+Use this exact one-line install command:
+
+```text
+/plugin marketplace add Rakulck/Frontend-System-Design && /plugin install frontend@system-design
+```
+
+Then run:
+
+```text
+/reload-plugins
+```
+
+Then usage:
+
+```text
+/frontend:frontend-system-design analyze this codebase. Do not modify code.
+```
+
+## Usage examples
 
 Analyze only:
 
@@ -47,40 +119,7 @@ This skill is safe by default. It only pre-approves read-only tools:
 
 Execution actions such as editing files, running build commands, installing packages, changing architecture, or modifying project behavior should require explicit user intent and Claude Code permission.
 
-## What it does
-
-Principal Frontend Engineer reviews and improves frontend system design across:
-
-- API handling and data fetching
-- Caching, stale data, and cache invalidation
-- Mutation/write-flow safety
-- Loading, error, empty, retry, and fallback states
-- State management boundaries
-- Performance and traffic handling
-- Auth, security, and sensitive data handling
-- Reusable components and folder structure
-- Testing, validation, and production readiness
-
-## Modes
-
-This is built around one primary skill and three focused agents.
-
-```text
-Skill: frontend-system-design
-  Orchestrates the workflow and decides whether to analyze, execute, or validate.
-
-Agents:
-  frontend-auditor
-    Read-only analysis. Produces the grounded priority report.
-
-  frontend-executor
-    Implements selected fixes safely. Preserves existing stack and patterns.
-
-  frontend-validator
-    Runs checks and verifies that changes did not break build, tests, or key flows.
-```
-
-## Safety and Anti-Hallucination Rules
+## Safety rules
 
 * Every finding must include codebase evidence.
 * Low-confidence issues should not be executed without user approval.
@@ -89,23 +128,7 @@ Agents:
 * The skill should not modify backend contracts, database schema, auth, billing, payment, or deployment logic unless explicitly requested.
 * The skill should not broaden the task beyond the user’s requested scope.
 
-## Priority levels
-
-```text
-P0 — Critical
-Can cause production downtime, blank UI, data loss, broken auth/payment, broken core flow, duplicate critical writes, or unsafe sensitive-data behavior.
-
-P1 — High
-Major reliability, performance, scalability, traffic, or UX risk.
-
-P2 — Medium
-Maintainability, architecture, design-system, or code-quality issue that will slow future development.
-
-P3 — Low
-Cleanup, naming, small consistency issue, polish, or nice-to-have optimization.
-```
-
-## Supported Frameworks
+## Supported frameworks
 
 Strongest support:
 
@@ -148,16 +171,6 @@ principal-frontend-engineer/
   LICENSE
   CHANGELOG.md
 ```
-
-## Experimental / Advanced
-
-If you have a custom or experimental plugin environment, you can use the slash command syntax:
-
-```text
-/plugin marketplace add owner/repo
-/plugin install plugin-name@marketplace-name
-```
-*(Note: Marketplace install is not the recommended path. Please use the standard skill installation methods above.)*
 
 ## Development notes
 
