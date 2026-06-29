@@ -1,4 +1,4 @@
-# Principal Frontend Engineer
+# Frontend System Design
 
 A Claude Code skill for analyzing, improving, and validating frontend codebases like a principal frontend engineer.
 
