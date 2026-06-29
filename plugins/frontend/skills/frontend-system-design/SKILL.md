@@ -1,7 +1,7 @@
 ---
 name: frontend-system-design
-description: Use this skill when the user asks to analyze, architect, review, fix, refactor, validate, or improve frontend system design, frontend architecture, API/data fetching, caching, mutations, state management, loading/error/empty states, performance, traffic handling, auth boundaries, reusable components, folder structure, production readiness, React, Next.js, React Native, Expo, Flutter, Vue, Angular, Svelte, Blazor, Razor, or frontend/API integration.
-when_to_use: Use for requests like "review my frontend architecture", "fix P0/P1 frontend issues", "improve caching", "audit API handling", "prevent UI downtime", "validate frontend changes", "make this frontend production ready", or "use frontend system design".
+description: Use this skill to analyze, audit, refactor, fix, or validate frontend system design, including API handling, caching, state management, mutations, loading/error states, duplicate components, reusable architecture, performance, traffic, auth boundaries, and production readiness.
+when_to_use: Use when the user asks to review frontend architecture, run a frontend system design audit, fix P0/P1 frontend issues, improve caching, clean duplicate components, prevent UI downtime, validate frontend changes, or make a frontend codebase production ready.
 argument-hint: "[analyze|fix P0|fix P1|validate] [scope]"
 user-invocable: true
 disable-model-invocation: false
@@ -121,19 +121,65 @@ When the user asks to analyze, audit, review, inspect, or generate a report:
 4. Produce a priority-ranked report.
 5. Do not modify files.
 
-Include the detected framework only as a short inline note inside the Executive Summary if needed, like: `Project type: Next.js app router frontend`
-
 Required audit output:
 
-1. Executive Summary
-2. Priority Fix Order
-3. Findings
-4. Validation Plan
+# Frontend System Design Audit
 
-Do not include a separate Detected Stack section.
-Do not produce long architecture essays.
-Keep each finding concise and easy to scan.
-Order fixes by priority and user impact.
+## Summary
+Write 2–4 short sentences. Mention the main reliability, performance, and maintainability risks. Do not create a separate Detected Stack section. If project type matters, mention it in one short sentence only.
+
+## Top Fixes
+
+Use this table:
+
+| Priority | Issue | Impact | Effort | Confidence | Estimated Gain |
+|---|---|---|---|---|---|
+
+Rules for the table:
+- Keep issue titles short.
+- Impact must be one short sentence.
+- Effort must be Small, Medium, or Large.
+- Confidence must be High, Medium, or Low.
+- Estimated Gain must be concrete but not fake.
+- Do not invent exact percentages, milliseconds, or revenue impact unless measured.
+- Sort P0 first, then P1, then P2, then P3.
+- Show the top 10 issues max.
+
+## Recommended Order
+
+List fixes in the exact order they should be handled.
+
+Format:
+1. Fix name
+2. Fix name
+3. Fix name
+
+## Notes
+
+Only include short notes if needed:
+- assumptions
+- low-confidence findings
+- lower-priority issues
+- validation concerns
+
+## Bottom Summary
+
+Always include:
+
+- Critical risks:
+- High-priority risks:
+- Medium-priority risks:
+- Quick wins:
+- Largest user-facing gain:
+- Largest engineering gain:
+- Suggested first execution:
+
+Rules:
+- Do not write long paragraphs.
+- Do not output one detailed section per issue by default.
+- Only expand a specific issue if the user asks.
+- Keep the audit concise and easy to read.
+- The audit should feel like an executive/principal engineering report, not a long essay.
 
 ## Execute Mode
 
